@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
+using RentACar.Api.Migrations;
 
 namespace RentACar.Api.Models
 {
@@ -18,16 +20,42 @@ namespace RentACar.Api.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class RentACarDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public RentACarDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<RentACarDbContext, Configuration>());
         }
-        
-        public static ApplicationDbContext Create()
+
+        public IDbSet<Car> Cars { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
         {
-            return new ApplicationDbContext();
+            return base.Set<T>();
+        }
+
+        public DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
+
+        public static RentACarDbContext Create()
+        {
+            return new RentACarDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
