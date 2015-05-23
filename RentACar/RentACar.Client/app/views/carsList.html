@@ -1,0 +1,34 @@
+﻿<div class="row">
+    <div class="row">
+        <div class="col-md-12 alert alert-dismissable alert-info text-center">
+            <p>{{ title }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 list-group">
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>YearOfManufacture</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="car in allCars">
+                        <td>{{car.Id}}</td>
+                        <td>{{car.Brand}}</td>
+                        <td>{{car.Model}}</td>
+                        <td>{{car.YearOfManufacture}}</td>
+                        <td>
+                            <a href="#/edit/{{car.Id}}">Edit</a>
+                            <a href="#/" ng-click="delete(car.Id)" ng-controller="carsController">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

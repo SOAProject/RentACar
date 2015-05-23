@@ -1,9 +1,33 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>News system</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
 </head>
-<body>
-
+<body ng-app="rentACar" ng-cloak>
+    <div class="nav">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">Rent a Car</a>
+                <a class="navbar-brand" href="#/create">Add new car</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" ng-view></div>
+            <!--<div class="col-md-4" ng-include src="'app/views/weather.html'"></div>-->
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <!-- controllers -->
+    <script src="app/controllers/carsController.js"></script>
+    <script src="app/controllers/carsListController.js"></script>
+    <!-- services -->
+    <script src="app/app.js"></script>
 </body>
 </html>

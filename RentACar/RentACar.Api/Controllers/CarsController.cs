@@ -62,7 +62,7 @@ namespace RentACar.Api.Controllers
 
             existingCar.Brand = model.Brand;
             existingCar.Model = model.Model;
-            existingCar.YearOfManifacture = model.YearOfManifacture;
+            existingCar.YearOfManufacture = model.YearOfManufacture;
             this.carRepository.Update(existingCar);
             this.carRepository.SaveChanges();
 

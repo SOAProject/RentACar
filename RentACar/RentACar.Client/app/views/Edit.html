@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <div class="row">
+        <div class="col-md-12 alert alert-dismissable alert-info text-center">
+            <p>{{ title }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" ng-controller="carsController">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="brand">Brand</label>
+                    <input class="form-control" id="brand" name="brand" type="text" ng-model="currentCar.Brand">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="model">Model</label>
+                    <input class="form-control" id="model" name="model" type="text" ng-model="currentCar.Model">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="yearOfManufacture">Year of manufacture</label>
+                    <input class="form-control" id="yearOfManufacture" name="yearOfManufacture" type="number" ng-model="currentCar.YearOfManufacture">
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-7 col-lg-offset-5">
+                        <a href="#/" class="btn btn-default col-md-5 col-md-offset-1">Cancel</a>
+                        <button type="submit" ng-click="edit(currentCar.Id)" class="btn btn-primary col-md-5 col-md-offset-1">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

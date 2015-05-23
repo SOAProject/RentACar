@@ -8,6 +8,6 @@
 
         public string Model { get; set; }
 
-        public int YearOfManifacture { get; set; }
+        public int YearOfManufacture { get; set; }
     }
 }
