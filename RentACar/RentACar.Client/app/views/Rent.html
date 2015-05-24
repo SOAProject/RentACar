@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="row">
+        <div class="col-md-12 alert alert-dismissable alert-info text-center">
+            <p>{{ title }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" ng-controller="rentsController">
+            <input type="hidden" name="carId" id="carId" ng-model="currentRent.CarId" />
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="from">From</label>
+                    <input class="form-control" id="from" name="from" type="date" ng-model="currentRent.From">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="to">To</label>
+                    <input class="form-control" id="to" name="to" type="date" ng-model="currentRent.To">
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-7 col-lg-offset-5">
+                        <a href="#/" class="btn btn-default col-md-5 col-md-offset-1">Cancel</a>
+                        <button type="submit" ng-click="rent()" class="btn btn-primary col-md-5 col-md-offset-1">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

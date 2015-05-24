@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <form class="form-horizontal" ng-controller="carsController">
+        <form class="form-horizontal" ng-controller="carsController" oninput="price.value = rentPrice.value">
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="brand">Brand</label>
@@ -18,6 +18,18 @@
                 <div class="form-group">
                     <label class="control-label" for="yearOfManufacture">Year of manufacture</label>
                     <input class="form-control" id="yearOfManufacture" name="yearOfManufacture" type="number" ng-model="currentCar.YearOfManufacture">
+                </div>
+                <div class="form-group">
+
+                    <div class="col-md-11">
+                        <label class="control-label" for="rentPrice">Rent price</label>
+                        <input id="rentPrice" name="rentPrice" type="range" min="10" max="100" step="1" ng-model="currentCar.RentPrice" value="currentCar.RentPrice">
+                    </div>
+                    <div class="col-md-1">
+                        <h1>
+                            <output name="price" for="rentPrice" class="label label-primary">{{currentCar.RentPrice}}</output>
+                        </h1>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-7 col-lg-offset-5">

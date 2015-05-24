@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
 using RentACar.Api.Migrations;
 
@@ -29,6 +28,8 @@ namespace RentACar.Api.Models
         }
 
         public IDbSet<Car> Cars { get; set; }
+
+        public IDbSet<Rent> Rents { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {

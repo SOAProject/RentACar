@@ -58,7 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\carsController.js" />
+    <Content Include="app\controllers\rentsController.js" />
     <Content Include="app\views\Edit.html" />
+    <Content Include="app\views\Rent.html" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular-route.min.js.map" />

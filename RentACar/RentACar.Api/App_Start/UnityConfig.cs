@@ -12,6 +12,7 @@ namespace RentACar.Api
         {
 			var container = new UnityContainer();
             container.RegisterType<IRepository<Car>, EFRepository<Car>>();
+            container.RegisterType<IRepository<Rent>, EFRepository<Rent>>();
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

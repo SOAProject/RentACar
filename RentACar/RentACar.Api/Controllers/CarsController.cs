@@ -1,6 +1,9 @@
 ﻿using System.Web.Http;
 using RentACar.Api.Data;
 using RentACar.Api.Models;
+using System.Linq;
+using System;
+using System.Data.Entity;
 
 namespace RentACar.Api.Controllers
 {
@@ -10,19 +13,40 @@ namespace RentACar.Api.Controllers
 
         public CarsController(IRepository<Car> carRepo)
         {
-            this.carRepository = carRepo; 
+            this.carRepository = carRepo;
         }
 
         public IHttpActionResult Get()
         {
-            var allCars = this.carRepository.All();
+            var allCars = this.carRepository.All()
+                .Select(car => new
+                {
+                    Id = car.Id,
+                    Brand = car.Brand,
+                    Model = car.Model,
+                    YearOfManufacture = car.YearOfManufacture,
+                    RentPrice = car.RentPrice,
+                    IsRented = car.Rents.Any(rent => DbFunctions.TruncateTime(rent.From) <= DbFunctions.TruncateTime(DateTime.Now) && DbFunctions.TruncateTime(rent.To) >= DbFunctions.TruncateTime(DateTime.Now))
+                })
+                .ToArray();
 
             return Ok(allCars);
         }
 
         public IHttpActionResult Get(int id)
         {
-            var currentCar = this.carRepository.Get(id);
+            var currentCar = this.carRepository
+                .All()
+                .Where(car => car.Id == id)
+                .Select(car => new
+                {
+                    Id = car.Id,
+                    Brand = car.Brand,
+                    Model = car.Model,
+                    YearOfManufacture = car.YearOfManufacture,
+                    RentPrice = car.RentPrice
+                })
+                .FirstOrDefault();
 
             if (currentCar == null)
             {
@@ -63,6 +87,7 @@ namespace RentACar.Api.Controllers
             existingCar.Brand = model.Brand;
             existingCar.Model = model.Model;
             existingCar.YearOfManufacture = model.YearOfManufacture;
+            existingCar.RentPrice = model.RentPrice;
             this.carRepository.Update(existingCar);
             this.carRepository.SaveChanges();
 

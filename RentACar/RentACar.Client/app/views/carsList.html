@@ -12,7 +12,9 @@
                         <th>Id</th>
                         <th>Brand</th>
                         <th>Model</th>
-                        <th>YearOfManufacture</th>
+                        <th>Year of manufacture</th>
+                        <th>Rent price</th>
+                        <th>Is free</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -22,9 +24,21 @@
                         <td>{{car.Brand}}</td>
                         <td>{{car.Model}}</td>
                         <td>{{car.YearOfManufacture}}</td>
+                        <td>{{car.RentPrice}}</td>
                         <td>
-                            <a href="#/edit/{{car.Id}}">Edit</a>
-                            <a href="#/" ng-click="delete(car.Id)" ng-controller="carsController">Delete</a>
+                            <span ng-if="car.IsRented == false" class="glyphicon glyphicon-ok"></span>
+                            <span ng-if="car.IsRented == true" class="glyphicon glyphicon-remove"></span>
+                        </td>
+                        <td>
+                            <a href="#/rent/{{car.Id}}">
+                                <span class="glyphicon glyphicon-road"></span>
+                            </a>
+                            <a href="#/edit/{{car.Id}}">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="#/" ng-click="delete(car.Id)" ng-controller="carsController">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

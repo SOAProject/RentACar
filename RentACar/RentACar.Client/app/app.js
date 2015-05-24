@@ -1,6 +1,7 @@
 ﻿var app = angular.module("rentACar", ['ngRoute'])
     .controller('carsListController', carsListController)
     .controller('carsController', carsController)
+    .controller('rentsController', rentsController)
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
@@ -14,6 +15,10 @@
             .when('/create', {
                 templateUrl: 'app/views/Edit.html',
                 controller: 'carsController',
+            })
+            .when('/rent/:id', {
+                templateUrl: 'app/views/Rent.html',
+                controller: 'rentsController',
             })
             .otherwise({ redirectTo: '/' });
     })
