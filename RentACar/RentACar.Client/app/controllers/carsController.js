@@ -14,7 +14,6 @@
         });
     } 
     $scope.title = title;
-
     $scope.edit = function (id) {
         if (id) {
             var updateUrl = baseServiceUrl + 'api/cars/' + id;
