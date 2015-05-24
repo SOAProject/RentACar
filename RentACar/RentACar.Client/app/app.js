@@ -2,6 +2,8 @@
     .controller('carsListController', carsListController)
     .controller('carsController', carsController)
     .controller('rentsController', rentsController)
+    .controller('currencyController', currencyController)
+    .factory('currencyService', currencyService)
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {

@@ -1,4 +1,5 @@
 ﻿function rentsController($scope, $routeParams, $http, $location, baseServiceUrl) {
+    $scope.location = $location.url();
     var id = $routeParams['id'];
     $scope.title = 'Rent car with Id: ' + id;
     $scope.currentRent = {

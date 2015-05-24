@@ -1,0 +1,14 @@
+﻿<div class="panel panel-primary" ng-controller="currencyController">
+    <div class="panel-heading">Currency</div>
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <strong>Currency rate for {{curentDate | date:'medium'}}</strong>
+        </div>
+        <div class="col-md-6">
+            <h1><span class="label label-warning">USD/BGN: </span><span class="label label-primary">{{quotes.USDBGN}}</span></h1>
+        </div>
+        <div class="col-md-6">
+            <h1><span class="label label-warning">USD/EUR: </span><span class="label label-primary">{{quotes.USDEUR}}</span></h1>
+        </div>
+    </div>
+</div>

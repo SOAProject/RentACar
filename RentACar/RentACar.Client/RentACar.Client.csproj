@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\carsController.js" />
+    <Content Include="app\controllers\curencyController.js" />
     <Content Include="app\controllers\rentsController.js" />
+    <Content Include="app\services\currencyService.js" />
+    <Content Include="app\views\currency.html" />
     <Content Include="app\views\Edit.html" />
     <Content Include="app\views\Rent.html" />
     <Content Include="Scripts\angular-route.js" />
@@ -105,9 +108,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

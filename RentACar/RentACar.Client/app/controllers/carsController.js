@@ -1,6 +1,8 @@
 ﻿function carsController($scope, $route,$routeParams, $http, $location, baseServiceUrl) {
     var title = 'Create car';
     var id = $routeParams['id'];
+    $scope.location = $location.url();
+
     $scope.currentCar = {};
     if (id) {
         //Edit

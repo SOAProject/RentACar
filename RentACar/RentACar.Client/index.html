@@ -17,7 +17,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12" ng-view></div>
-            <!--<div class="col-md-4" ng-include src="'app/views/weather.html'"></div>-->
+        </div>
+        <div class="row" ng-show="location === '/'" ng-controller="currencyController">
+            <div class="col-md-12" ng-include src="'app/views/currency.html'"></div>
         </div>
     </div>
     <script src="Scripts/jquery-2.1.4.min.js"></script>
@@ -28,7 +30,9 @@
     <script src="app/controllers/carsController.js"></script>
     <script src="app/controllers/carsListController.js"></script>
     <script src="app/controllers/rentsController.js"></script>
+    <script src="app/controllers/curencyController.js"></script>
     <!-- services -->
+    <script src="app/services/currencyService.js"></script>
     <script src="app/app.js"></script>
 </body>
 </html>
