@@ -20,7 +20,7 @@ namespace RentACar.Api
 
         }
 
-        public int GetCarsCount()
+        public int GetCarsCount(string param)
         {
             var dbContext = new RentACarDbContext();
             this.carRepository = new EFRepository<Car>(dbContext);
@@ -30,6 +30,18 @@ namespace RentACar.Api
                 .Count();
 
             return carsCount;
+        }
+
+        public string GetCarsCountInString(string param)
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var carsCount = this.carRepository
+                .All()
+                .Count();
+
+            return carsCount.ToString();
         }
     }
 }

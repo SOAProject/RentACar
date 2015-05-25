@@ -12,6 +12,9 @@ namespace RentACar.Api
     public interface ICarsService
     {
         [OperationContract]
-        int GetCarsCount();
+        int GetCarsCount(string param);
+
+        [OperationContract]
+        string GetCarsCountInString(string param);
     }
 }
