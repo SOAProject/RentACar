@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentACar.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -16,5 +17,20 @@ namespace RentACar.Api
 
         [OperationContract]
         string GetCarsCountInString(string param);
+
+        [OperationContract]
+        IEnumerable<string> GetCarsNames();
+
+        [OperationContract]
+        IEnumerable<Car> GetCars();
+
+        [OperationContract]
+        Car GetCarById(int id);
+
+        [OperationContract]
+        int GetCarRentsCountById(int id);
+
+        [OperationContract]
+        decimal GetEarnedMoneyByCarId(int id);
     }
 }

@@ -43,5 +43,73 @@ namespace RentACar.Api
 
             return carsCount.ToString();
         }
+
+        public IEnumerable<string> GetCarsNames()
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var carsNames = this.carRepository
+                .All()
+                .Select(car => car.Model)
+                .Distinct()
+                .ToArray();
+
+            return carsNames;
+        }
+
+        public IEnumerable<Car> GetCars()
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var cars = this.carRepository
+                .All()
+                .ToArray();
+
+            return cars;
+        }
+
+        public Car GetCarById(int id)
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var car = this.carRepository
+                .Get(id);
+
+            return car;
+        }
+
+        public int GetCarRentsCountById(int id)
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var rentsCount = this.carRepository
+                .Get(id)
+                .Rents
+                .Count();
+
+            return rentsCount;
+        }
+
+        public decimal GetEarnedMoneyByCarId(int id)
+        {
+            var dbContext = new RentACarDbContext();
+            this.carRepository = new EFRepository<Car>(dbContext);
+
+            var car = this.carRepository
+                .Get(id);
+
+            if (car != null)
+            {
+                var earnedMoney = car.Rents.Count * car.RentPrice;
+
+                return earnedMoney;
+            }
+
+            return 0;
+        }
     }
 }
