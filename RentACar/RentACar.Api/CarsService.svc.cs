@@ -81,7 +81,8 @@ namespace RentACar.Api
 
             if (car != null)
             {
-                var earnedMoney = car.Rents.Count * car.RentPrice;
+                var totalDays = car.Rents.Sum(m => (m.To - m.From).TotalDays);
+                var earnedMoney = (decimal)totalDays * car.RentPrice;
 
                 return earnedMoney;
             }
