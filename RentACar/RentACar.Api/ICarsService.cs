@@ -22,12 +22,6 @@ namespace RentACar.Api
         IEnumerable<string> GetCarsNames();
 
         [OperationContract]
-        IEnumerable<Car> GetCars();
-
-        [OperationContract]
-        Car GetCarById(int id);
-
-        [OperationContract]
         int GetCarRentsCountById(int id);
 
         [OperationContract]

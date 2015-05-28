@@ -58,29 +58,6 @@ namespace RentACar.Api
             return carsNames;
         }
 
-        public IEnumerable<Car> GetCars()
-        {
-            var dbContext = new RentACarDbContext();
-            this.carRepository = new EFRepository<Car>(dbContext);
-
-            var cars = this.carRepository
-                .All()
-                .ToArray();
-
-            return cars;
-        }
-
-        public Car GetCarById(int id)
-        {
-            var dbContext = new RentACarDbContext();
-            this.carRepository = new EFRepository<Car>(dbContext);
-
-            var car = this.carRepository
-                .Get(id);
-
-            return car;
-        }
-
         public int GetCarRentsCountById(int id)
         {
             var dbContext = new RentACarDbContext();
