@@ -231,10 +231,14 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\EFRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="EarnedMoney.svc.cs">
+      <DependentUpon>EarnedMoney.svc</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ICarsService.cs" />
+    <Compile Include="IEarnedMoney.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -251,6 +255,7 @@
     <Content Include="CarsService.svc" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EarnedMoney.svc" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
